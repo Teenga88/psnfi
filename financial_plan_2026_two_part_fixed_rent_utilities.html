@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แผนการเงิน 2026 แบบ 2 Part</title>
+<style>
+:root {
+  --bg:#080a0f; --card:#111722; --card2:#151d2b; --line:#2a3548;
+  --text:#edf3fb; --muted:#9aa7b8; --green:#35d399; --yellow:#ffd166; --red:#ff6b6b; --blue:#85a7ff;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:radial-gradient(circle at top left,#1f2a4a 0,#080a0f 34%,#05060a 100%);
+  color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",sans-serif; line-height:1.55;
+}
+.wrap { max-width:1180px; margin:0 auto; padding:26px 15px 70px; }
+.hero,.box,.month {
+  border:1px solid var(--line); background:rgba(17,23,34,.94); border-radius:26px;
+  padding:22px; box-shadow:0 16px 40px rgba(0,0,0,.28);
+}
+.hero { background:linear-gradient(135deg,rgba(133,167,255,.16),rgba(53,211,153,.08)); }
+h1 { font-size:clamp(28px,4vw,46px); margin:0 0 10px; letter-spacing:-.6px; }
+h2 { margin:0; font-size:24px; }
+h3 { margin:0 0 6px; font-size:18px; }
+p { margin:0; color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+.metric { border:1px solid var(--line); background:rgba(255,255,255,.045); border-radius:18px; padding:14px; }
+.metric span,.summary span { display:block; color:var(--muted); font-size:13px; }
+.metric b { display:block; margin-top:4px; font-size:22px; }
+.box { margin-top:18px; }
+table { width:100%; border-collapse:collapse; }
+th,td { padding:10px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+th:last-child,td:last-child { text-align:right; }
+.month { margin-top:18px; }
+.month-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px; }
+.pill { border:1px solid var(--line); background:rgba(255,255,255,.06); padding:8px 12px; border-radius:999px; white-space:nowrap; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.part { border:1px solid var(--line); background:rgba(255,255,255,.04); border-radius:20px; padding:16px; }
+.service { border-left:4px solid var(--blue); }
+.salary { border-left:4px solid var(--green); }
+.hint { font-size:14px; margin-bottom:12px; }
+.sumline { display:flex; justify-content:space-between; gap:10px; padding:8px 0; border-bottom:1px dashed #334057; }
+.note { margin:12px 0; padding:10px 12px; border-radius:14px; background:rgba(255,209,102,.08); color:#f5e6bd; }
+.paylist { list-style:none; padding:0; margin:10px 0 0; }
+.paylist li { display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.07); }
+.paylist small { color:var(--muted); font-size:12px; }
+.summary { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px; }
+.summary div { background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:16px; padding:13px; }
+.summary b { display:block; margin-top:4px; font-size:20px; }
+.ok { color:var(--green); } .warn { color:var(--yellow); } .danger { color:var(--red); }
+.callout { border-left:4px solid var(--yellow); padding:12px 14px; background:rgba(255,209,102,.08); border-radius:14px; color:#f5e6bd; margin-top:14px; }
+.footer { color:var(--muted); text-align:center; font-size:13px; margin-top:24px; }
+@media (max-width:900px) {
+ .grid,.two,.summary { grid-template-columns:1fr; }
+ .month-head { flex-direction:column; }
+ th:last-child,td:last-child { text-align:left; }
+ .paylist li,.sumline { align-items:flex-start; }
+}
+@media print {
+ body { background:#fff; color:#111; }
+ .hero,.box,.month,.part,.summary div,.metric { background:#fff; box-shadow:none; break-inside:avoid; }
+ p,.metric span,.summary span,.hint,small,.footer { color:#555; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>แผนการเงิน 2026 แบบ 2 Part 🧾</h1>
+    <p>แก้ตามข้อมูลล่าสุด: <b>ค่าหอ ฿2,300</b> และ <b>ค่าสาธารณูปโภค ฿400</b> ย้ายไปจ่ายสิ้นเดือน แยกจากรอบเซอร์วิสชาร์จกลางเดือน</p>
+    <div class="grid">
+      <div class="metric"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+      <div class="metric"><span>ยอดกลางเดือน 15/18/21</span><b>฿4,377.43</b></div>
+      <div class="metric"><span>ยอดสิ้นเดือนประจำ</span><b>฿4,500.00</b></div>
+      <div class="metric"><span>เงินตั้งต้นที่ควรมีก่อน 15 พ.ค.</span><b class="warn">฿1,577.43</b></div>
+    </div>
+    <div class="callout">
+      หลังแก้ตัวเลขแล้ว รอบวันที่ 15 เบาลงมาก เพราะค่าหอกับสาธารณูปโภคไปอยู่สิ้นเดือน แผนจึงหายใจคล่องขึ้น ไม่ใช่คล่องแบบรวย แต่คล่องแบบไม่โดนบีบคอ 🧱
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>รายการที่ต้องจ่ายจากรอบวันที่ 15 / 18 / 21</h2>
+    <p>รอบนี้ใช้เซอร์วิสชาร์จ + เงินที่กันไว้จากสิ้นเดือนก่อน</p><br>
+    <table>
+      <tr><th>รายการ</th><th>กำหนด</th><th>ยอด</th></tr>
+      <tr><td>ค่าฟัน</td><td>15</td><td>฿1,500.00</td></tr><tr><td>ผ่อนคอม</td><td>15</td><td>฿443.00</td></tr><tr><td>น้ำมันรถ</td><td>15</td><td>฿300.00</td></tr><tr><td>ค่ากินครึ่งแรก</td><td>15</td><td>฿1,200.00</td></tr><tr><td>ค่าเน็ตมือถือ</td><td>18</td><td>฿373.43</td></tr><tr><td>ประกัน</td><td>21</td><td>฿561.00</td></tr>
+      <tr><th colspan="2">รวม</th><th>฿4,377.43</th></tr>
+    </table>
+  </section>
+
+  <section class="box">
+    <h2>รายการสิ้นเดือนจากเงินเดือน</h2>
+    <p>หลังจ่ายก้อนนี้ ต้องกันเงินรอบวันที่ 15 เดือนถัดไปก่อน แล้วค่อยจ่ายหนี้</p><br>
+    <table>
+      <tr><th>รายการ</th><th>กำหนด</th><th>ยอด</th></tr>
+      <tr><td>ค่าหอ</td><td>สิ้นเดือน</td><td>฿2,300.00</td></tr><tr><td>ค่าสาธารณูปโภค</td><td>สิ้นเดือน</td><td>฿400.00</td></tr><tr><td>ค่ากินครึ่งหลัง</td><td>สิ้นเดือน</td><td>฿1,200.00</td></tr><tr><td>ประกันสังคม</td><td>สิ้นเดือน</td><td>฿600.00</td></tr>
+      <tr><th colspan="2">รวม</th><th>฿4,500.00</th></tr>
+    </table>
+  </section>
+
+  <section class="box">
+    <h2>วิเคราะห์ความเป็นไปได้ของ Service Charge</h2>
+    <p>ตารางนี้ใช้ดูว่าถ้าเซอร์วิสออกต่างกัน แผนปิดหนี้จะเร็ว/ช้าแค่ไหน</p><br>
+    <table>
+      <tr><th>กรณี</th><th>เงินที่ต้องกันก่อน 15 เดือนแรก</th><th>Easy Cash จบ</th><th>Umay+ จบ</th><th>เงินเก็บปลายปี</th><th>ยอดหนี้ปลายปี</th></tr>
+      <tr><td>การันตีขั้นต่ำ 1,500 ทุกเดือน</td><td>฿2,877.43</td><td>มิถุนายน</td><td>กันยายน</td><td>฿17,093.06</td><td>Easy ฿0.00<br>Umay ฿0.00</td></tr><tr><td>โลว์ซีซันอนุรักษ์นิยมตามแผน</td><td>฿1,577.43</td><td>พฤษภาคม</td><td>สิงหาคม</td><td>฿39,593.06</td><td>Easy ฿0.00<br>Umay ฿0.00</td></tr><tr><td>กรณีดี 6,000 ทุกเดือน</td><td>฿0.00</td><td>พฤษภาคม</td><td>กรกฎาคม</td><td>฿50,215.63</td><td>Easy ฿0.00<br>Umay ฿0.00</td></tr><tr><td>ไฮมาก 9,000 ทุกเดือน</td><td>฿0.00</td><td>พฤษภาคม</td><td>กรกฎาคม</td><td>฿74,215.63</td><td>Easy ฿0.00<br>Umay ฿0.00</td></tr>
+    </table>
+  </section>
+
+  
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>พฤษภาคม 2026</h2>
+          <p>โลว์ซีซันหนัก · 🟡 Easy จบแล้ว โฟกัส Umay</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿2,800.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿2,800.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">ต้องใช้เงินกันไว้จากสิ้นเดือนก่อน <b class='danger'>฿1,577.43</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿6,122.57</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿1,377.43</b></li><li><span>โปะ/ปิด Easy Cash</span><b>฿5,166.50</b></li><li><span>โปะ Umay+</span><b>฿956.07</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿15,064.93</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿0.00</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>มิถุนายน 2026</h2>
+          <p>โลว์ซีซัน · 🟡 Easy จบแล้ว โฟกัส Umay</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿3,000.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿3,000.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">ต้องใช้เงินกันไว้จากสิ้นเดือนก่อน <b class='danger'>฿1,377.43</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿6,122.57</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿1,377.43</b></li><li><span>โปะ Umay+</span><b>฿6,122.57</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿8,942.36</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿0.00</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>กรกฎาคม 2026</h2>
+          <p>โลว์ซีซัน · 🟡 Easy จบแล้ว โฟกัส Umay</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿3,000.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿3,000.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">ต้องใช้เงินกันไว้จากสิ้นเดือนก่อน <b class='danger'>฿1,377.43</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿6,622.57</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿877.43</b></li><li><span>โปะ Umay+</span><b>฿6,622.57</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿2,319.79</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿0.00</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>สิงหาคม 2026</h2>
+          <p>เริ่มดีขึ้น · ✅ ปลอดหนี้แล้ว</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿3,500.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿3,500.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">ต้องใช้เงินกันไว้จากสิ้นเดือนก่อน <b class='danger'>฿877.43</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿7,122.57</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿377.43</b></li><li><span>โปะ Umay+</span><b>฿2,319.79</b></li><li><span>เหลือเข้าเงินเก็บ/ทอง/สำรอง</span><b>฿4,802.78</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿4,802.78</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>กันยายน 2026</h2>
+          <p>กลาง ๆ · ✅ ปลอดหนี้แล้ว</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿4,000.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿4,000.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">ต้องใช้เงินกันไว้จากสิ้นเดือนก่อน <b class='danger'>฿377.43</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿7,500.00</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿0.00</b></li><li><span>เหลือเข้าเงินเก็บ/ทอง/สำรอง</span><b>฿7,500.00</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿12,302.78</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>ตุลาคม 2026</h2>
+          <p>เริ่มเข้าไฮ · ✅ ปลอดหนี้แล้ว</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿5,000.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿5,000.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">เซอร์วิสพอจ่ายรอบกลางเดือน และเหลือ <b class='ok'>฿622.57</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿7,500.00</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿0.00</b></li><li><span>เหลือเข้าเงินเก็บ/ทอง/สำรอง</span><b>฿8,122.57</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿20,425.35</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>พฤศจิกายน 2026</h2>
+          <p>ไฮซีซัน · ✅ ปลอดหนี้แล้ว</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿6,500.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿6,500.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">เซอร์วิสพอจ่ายรอบกลางเดือน และเหลือ <b class='ok'>฿2,122.57</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿7,500.00</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿0.00</b></li><li><span>เหลือเข้าเงินเก็บ/ทอง/สำรอง</span><b>฿9,622.57</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿30,047.92</b></div>
+      </div>
+    </section>
+    
+    <section class="month">
+      <div class="month-head">
+        <div>
+          <h2>ธันวาคม 2026</h2>
+          <p>ไฮซีซัน · ✅ ปลอดหนี้แล้ว</p>
+        </div>
+        <div class="pill">Service คาดการณ์ ฿8,000.00</div>
+      </div>
+
+      <div class="two">
+        <div class="part service">
+          <h3>Part 1 — วันที่ 15 / 18 / 21</h3>
+          <p class="hint">ใช้เซอร์วิสชาร์จ + เงินกันไว้ล่วงหน้า</p>
+          <div class="sumline"><span>เงินเข้า 15</span><b>฿8,000.00</b></div>
+          <div class="sumline"><span>ยอดต้องจ่ายกลางเดือน</span><b>฿4,377.43</b></div>
+          <div class="note">เซอร์วิสพอจ่ายรอบกลางเดือน และเหลือ <b class='ok'>฿3,622.57</b></div>
+          <ul class="paylist"><li><span>ค่าฟัน <small>กำหนด 15</small></span><b>฿1,500.00</b></li><li><span>ผ่อนคอม <small>กำหนด 15</small></span><b>฿443.00</b></li><li><span>น้ำมันรถ <small>กำหนด 15</small></span><b>฿300.00</b></li><li><span>ค่ากินครึ่งแรก <small>กำหนด 15</small></span><b>฿1,200.00</b></li><li><span>ค่าเน็ตมือถือ <small>กำหนด 18</small></span><b>฿373.43</b></li><li><span>ประกัน <small>กำหนด 21</small></span><b>฿561.00</b></li></ul>
+        </div>
+
+        <div class="part salary">
+          <h3>Part 2 — สิ้นเดือน</h3>
+          <p class="hint">เงินเดือนเข้า แล้วจัดตามลำดับนี้</p>
+          <div class="sumline"><span>เงินเดือน</span><b>฿12,000.00</b></div>
+          <div class="sumline"><span>งบที่ยิงหนี้ได้หลังกันรอบหน้า</span><b>฿5,922.57</b></div>
+          <ul class="paylist"><li><span>ค่าหอ</span><b>฿2,300.00</b></li><li><span>ค่าสาธารณูปโภค</span><b>฿400.00</b></li><li><span>ค่ากินครึ่งหลัง</span><b>฿1,200.00</b></li><li><span>ประกันสังคม</span><b>฿600.00</b></li><li><span>กันไว้สำหรับรอบวันที่ 15 เดือนถัดไป</span><b>฿1,577.43</b></li><li><span>เหลือเข้าเงินเก็บ/ทอง/สำรอง</span><b>฿9,545.14</b></li></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><span>Easy Cash คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>Umay+ คงเหลือ</span><b>฿0.00</b></div>
+        <div><span>เงินเก็บสะสม</span><b>฿39,593.06</b></div>
+      </div>
+    </section>
+    
+
+  <section class="box">
+    <h2>กติกาใช้งานจริง</h2>
+    <ul>
+      <li><b>วันที่ 15:</b> จ่ายค่าฟัน ผ่อนคอม น้ำมัน ค่ากินครึ่งแรก ค่าเน็ต และประกันให้ครบก่อน</li>
+      <li><b>สิ้นเดือน:</b> เงินเดือนเข้าแล้วจ่ายค่าหอ ค่าสาธารณูปโภค ค่ากินครึ่งหลัง และประกันสังคม</li>
+      <li><b>หลังจ่ายสิ้นเดือน:</b> กันเงินสำหรับวันที่ 15 เดือนถัดไป แล้วค่อยโปะ Easy Cash ก่อน ตามด้วย Umay+</li>
+      <li><b>หลังหนี้หมด:</b> ย้ายเงินโปะหนี้ไปเงินสำรอง/ทอง/ของชิ้นใหญ่ ห้ามปล่อยให้หายแบบไม่มีใบเสร็จ</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    หมายเหตุ: ตัวเลข Easy Cash ใช้ยอดค่างวดคงเหลือจากภาพรวมประมาณ ฿5,166.50 และ Umay+ ฿16,021 ยังไม่รวมดอกเบี้ย/ค่าธรรมเนียมที่อาจเกิดเพิ่ม ควรเช็กยอดปิดบัญชีจริงในแอปก่อนจ่ายก้อนใหญ่
+  </div>
+</main>
+</body>
+</html>
